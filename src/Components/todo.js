@@ -24,14 +24,15 @@ const Todo = () => {
     } else if (inputData && !toggleSubmit) {
       console.log("Editable Item");
 
-      SetItems(
-        Items.map((elem) => {
-          if (elem.id === isEditItem) {
-            return { ...elem, name: inputData };
-          }
-          return elem;
-        })
-      );
+      const itemCheck = Items.map((elem) => {
+        if (elem.id === isEditItem) {
+          return { ...elem, name: inputData };
+        }
+        return elem;
+      });
+
+      SetItems(itemCheck);
+
       setToggleSubmit(true);
 
       setInputData("");

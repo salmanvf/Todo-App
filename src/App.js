@@ -1,22 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useContext } from "react";
+import React from "react";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import "./App.css";
+import Header from "./Components/Header";
+import Home from "./Components/Home";
+import TodoList from "./Components/TodoList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-       
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >          
-        Todo list
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/todoList" component={TodoList} />
+        <Redirect to="/" />
+      </Switch>
+    </BrowserRouter>
   );
 }
 
